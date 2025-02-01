@@ -1,14 +1,25 @@
-import React from 'react';
-import {Route, Routes, Navigate} from 'react-router-dom';
-import Login from '../pages/Login/Login';
-import Register from '../pages/Register/Register';
-
+import React from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
+import { AuthProvider } from "../contexts/AuthContext";
+import { ApiProvider } from "../contexts/ApiContext";
+import Campground from "../pages/Campground/Campground";
+import Main from "../pages/Main/Main";
+import Camping from "../pages/Campings/Camping";
 
 export default function AppRoutes() {
   return (
-    <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-    </Routes>
-  )
+    <AuthProvider>
+      <ApiProvider>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path='/campgrounds' element={<Main/>}/>
+          <Route path='/campings' element={<Camping/>}/>
+          <Route path='/campground/:id' element={<Campground/>}/>
+        </Routes>
+      </ApiProvider>
+    </AuthProvider>
+  );
 }

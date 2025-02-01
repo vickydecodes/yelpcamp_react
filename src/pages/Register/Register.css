@@ -47,7 +47,7 @@ input.email:focus, input.password:focus {
     border: 2px solid #66bb6a;
 }
 
-button {
+.register_button {
     width: 100%;
     height: 50px;
     background: #66bb6a;
@@ -61,7 +61,7 @@ button {
     transition: 0.3s ease-in-out;
 }
 
-button:hover {
+.register_button:hover {
     background: #57a05a;
 }
 
