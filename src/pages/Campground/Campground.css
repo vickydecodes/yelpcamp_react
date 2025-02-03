@@ -1,0 +1,14 @@
+.image_section {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid layout */
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .camp_img {
+    height: 500px;
+    width: auto;
+    object-fit: cover; /* Will ensure the images fit within their container */
+  }
+  

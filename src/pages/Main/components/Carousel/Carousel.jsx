@@ -10,7 +10,6 @@ export default function Carousel({imgs}) {
   </div>
   <div className="carousel-inner">
     {imgs.map((img,idx) =>{
-        console.log('imgs', imgs)
         return <div className="carousel-item" key={idx}>
         <img src={img.url} className="d-block" alt="..."/>
         <div className="carousel-caption d-none d-md-block">

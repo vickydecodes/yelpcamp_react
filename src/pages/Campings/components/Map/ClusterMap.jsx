@@ -14,9 +14,9 @@ const ClusterMap = ({ campgrounds, maptilerApiKey }) => {
       center:[0, 0],
       zoom: 2.5,
       projection: "globe",
-      style: maptilersdk.MapStyle.DATAVIZ.DARK,
+      style: maptilersdk.MapStyle.SATELLITE,
     });
-
+// maptilersdk.MapStyle.DATAVIZ.DARK
     map.on("load", () => {
       map.addSource("campgrounds", {
         type: "geojson",
@@ -99,6 +99,7 @@ const ClusterMap = ({ campgrounds, maptilerApiKey }) => {
       map.on("mouseenter", "clusters", () => {
         map.getCanvas().style.cursor = "pointer";
       });
+      
 
       map.on("mouseleave", "clusters", () => {
         map.getCanvas().style.cursor = "";
@@ -110,7 +111,7 @@ const ClusterMap = ({ campgrounds, maptilerApiKey }) => {
 
   return (
   <div className="map_container">
-      <div ref={mapContainerRef} style={{ width: "100%", height: "100%", borderRadius: "10px" }} />
+      <div ref={mapContainerRef} className="map_background" style={{ width: "100%", height: "100%", background: 'url("/imgs/space_background.jpg") no-repeat center center/cover' }} />
   </div>
   )
 };

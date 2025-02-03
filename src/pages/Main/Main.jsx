@@ -1,59 +1,75 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import Carousel from "./components/Carousel/Carousel";
-import { Link } from "react-router-dom";
-export default function Main() {
+import NavItem from "./components/NavItem/NavItem";
+import Post from "./components/Post/Post";
+import Campground from "../Campground/Campground";
+import "./Main.css";
 
+export default function Main() {
   const [campgrounds, setCampgrounds] = useState([]);
+  const navigate = useNavigate();
+  const { id } = useParams(); // Get ID from URL
 
   useEffect(() => {
     const fetchCampgrounds = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/campgrounds/data"
-        );
-
-       
-
+        const response = await axios.get("http://localhost:3000/campgrounds/data");
         setCampgrounds(response.data);
       } catch (error) {
         console.error("Error fetching campgrounds:", error);
       }
     };
-
     fetchCampgrounds();
   }, []);
 
-console.log(campgrounds)
+  const handleCampClick = (campId) => {
+    navigate(`/campgrounds/${campId}`); // Navigate to the clicked post
+  };
+
   return (
-    <div className="mt-5">
-      <div className="row g-0">
-        <div className="col-3">
-          <div className="navs text-end pe-5">
-            <h3>Yelpcamp</h3>
-            <div className="nav_items">
-              <h3 className="mt-3">Profile</h3>
-              <h3 className="mt-3">Posts</h3>
-              <Link to='/campings'><h3 className="mt-3">Campings</h3></Link>
-<h3 className="mt-3">Bookmarks</h3>
+    <div className="mt-0">
+      <div className="row g-0 main_page">
+        {/* Sidebar Navigation */}
+        <div className="col-4 nav_area">
+          <div className="navs text-end">
+            <div className="nav_items d-flex flex-column justify-content-center align-items-end">
+              <NavItem nav={"Yelpcamp"} />
+              <NavItem nav={"Profile"} />
+              <NavItem nav={"Posts"} />
+              <NavItem nav={"Campings"} />
+              <NavItem nav={"Bookmarks"} />
             </div>
           </div>
         </div>
-        <div className="col-6">{campgrounds.map((camp, idx) => {
-return <div className="card" key={idx}>
-<div className="card-body">
-  <h5><img src={camp.author.profile_pic.url} style={{height: '50px', width: '50px', borderRadius: '50%'}} alt="" />{camp.author.email}</h5>
-<div className="d-flex justify-content-center align-items-center">
-<img src={camp.images[1].url} style={{height: '500px', width: '500px', objectFit: 'contain'}} alt="" />
-<Carousel imgs={camp.images}/>
-</div>
-</div>
-</div>
-      }) }</div>
-        <div className="col-3"></div>
+
+        {/* Posts Section */}
+        <div className="col post_area">
+          {id ? (
+            <Campground handleBack={() => navigate("/campgrounds")} />
+          ) : (
+            <>
+              <div className="card">
+                <div className="card-body">Post your campground now! Click here</div>
+              </div>
+              {campgrounds.map((camp) => (
+                <Post key={camp.id} camp={camp} handleCampClick={() => handleCampClick(camp.id)} />
+              ))}
+            </>
+          )}
+        </div>
+
+        {/* Search & Trending Section */}
+        <div className="col-4 search_area">
+          <label htmlFor="search">Search Post</label> <br />
+          <input type="text" />
+          <div className="trending_posts">
+            {campgrounds.slice(0, 10).map((camp) => (
+              <h3 key={camp.id}>{camp.title}</h3>
+            ))}
+          </div>
+        </div>
       </div>
-      
     </div>
   );
 }

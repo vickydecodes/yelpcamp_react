@@ -17,7 +17,7 @@ export default function AppRoutes() {
           <Route path="/login" element={<Login />} />
           <Route path='/campgrounds' element={<Main/>}/>
           <Route path='/campings' element={<Camping/>}/>
-          <Route path='/campground/:id' element={<Campground/>}/>
+          <Route path='/campgrounds/:id' element={<Main/>}/>
         </Routes>
       </ApiProvider>
     </AuthProvider>

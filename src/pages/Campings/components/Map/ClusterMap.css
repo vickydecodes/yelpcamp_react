@@ -11,6 +11,8 @@
   }
 
   .map_container{
-    height: calc(100vh - 100px);
+    height: calc(100vh - 72px);
     width: 100%
   }
+
+
