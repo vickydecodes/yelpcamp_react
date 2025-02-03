@@ -1,0 +1,19 @@
+.author_pic{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.comment_tab{
+    border-top: 1px solid #ccc;
+}
+
+.author_tab h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-decoration: underline;
+    max-width: 100%; 
+  }
+  

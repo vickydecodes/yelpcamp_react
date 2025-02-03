@@ -15,6 +15,19 @@
 
 .search_area{
     padding-left: 30px;
+    padding-right: 20px;
+}
+
+input{
+    width: 80%;
+    margin: 10px 0px 20px 0px;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+label{
+    margin-left: 6px;
 }
 
 .post_area {
@@ -24,6 +37,7 @@
     flex-direction: column;
     gap: 20px; 
     padding-top: 30px;
+    padding-bottom: 60px;
     align-items: center;
     border: 1px solid #ccc
 }

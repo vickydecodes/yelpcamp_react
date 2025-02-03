@@ -6,6 +6,22 @@
     font-size: 30px;
 }
 
+@media (max-width: 768px) {
+    .like_button,
+    .bookmark_button,
+    .comment_button {
+        font-size: 25px
+    }
+
+    .author_box h5{
+        font-size: 15px;
+    }
+
+    .card{
+        font-size: 14px;
+    }
+}
+
 .card {
     width: 800px;
     max-width: 90%;

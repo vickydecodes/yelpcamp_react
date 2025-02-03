@@ -3,6 +3,8 @@ import ClusterMap from "../Campings/components/Map/ClusterMap";
 import axios from "axios";
 
 import Navbar from "../components/Navbar/Navbar";
+import NavItem from "../Main/components/NavItem/NavItem";
+import Footer from "../components/Footer/Footer";
 
 
 export default function Camping() {
@@ -41,12 +43,24 @@ export default function Camping() {
     fetchCampgrounds();
   }, []);
   return (
-    <div>
-      <Navbar />
-      <ClusterMap
+    <div className="row d-flex g-0">
+      {/* <Navbar /> */}
+<div className="col-xl-2 col-2 d-md-block d-none nav_area">
+          <div className="navs text-end">
+            <div className="nav_items d-flex flex-column justify-content-center align-items-end">
+              <NavItem nav={"Yelpcamp"} />
+              <NavItem nav={"Profile"} />
+              <NavItem nav={"Posts"} />
+              <NavItem nav={"Campings"} />
+              <NavItem nav={"Bookmarks"} />
+            </div>
+          </div>
+        </div>
+<div className="col-md-10 col-12"> <ClusterMap
         campgrounds={campgrounds}
         maptilerApiKey={"k8nq07thQrHCr6Uaftbm"}
-      />
+      /></div>
+      <Footer/>
     </div>
   );
 }

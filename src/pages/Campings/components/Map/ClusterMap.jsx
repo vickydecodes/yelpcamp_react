@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import * as maptilersdk from "@maptiler/sdk";
 import './ClusterMap.css'
 import "@maptiler/sdk/dist/maptiler-sdk.css";
+import Footer from "../../../components/Footer/Footer";
 
 const ClusterMap = ({ campgrounds, maptilerApiKey }) => {
   const mapContainerRef = useRef(null);
