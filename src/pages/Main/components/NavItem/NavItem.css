@@ -1,5 +1,23 @@
-.nav_item{
-    width: 250px;
+.nav_item {
+    width: 200px;
+    max-width: auto;
+    padding: 20px 25px;
+    border-radius: 20px;
     text-align: end;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav_item:hover{
+    transform: scale(1.05);
+    background-color: var(--white-color3);
+}
+
+.nav_item a{
+    text-decoration: none;
+    color: black;
+}
+
+.nav_item h5{
+    margin: 0;
 }

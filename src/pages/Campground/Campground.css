@@ -1,24 +1,51 @@
 .image_section {
   width: 100%;
-  max-width: 100%; /* Prevents stretching on large screens */
+  max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted for better fit */
-  gap: 5px; /* Slightly increased for better spacing */
-  margin: 20px auto; /* Centers the section */
-  justify-content: center; /* Ensures proper alignment */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 8px; 
+  margin: 20px auto;
+  padding: 0 10px; 
+  justify-content: center;
 }
 
-/* Improved image responsiveness */
 .camp_img {
-  width: 100%; /* Makes the image fit within the grid */
-  height: 250px; /* Keeps height fixed */
-  object-fit: cover; /* Fills the space while maintaining aspect ratio */
-  border-radius: 5px; /* Optional: Adds smooth corners */
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.camp_img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
+.comment_section {
+  width: 95%;
+  margin: 10px auto;
+  padding-top: 10px;
+}
 
-.comment_section{
-  width: 90%;
-  border-top: 1px solid #ccc;
+.comment_box {
+  padding: 8px;
+  margin-bottom: 5px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.footer_post button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.footer_post button:hover {
+  color: #007bff;
+  transform: scale(1.1);
 }

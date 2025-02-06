@@ -1,40 +1,89 @@
+/* ================= General Card Styling ================ */
+.card {
+    width: 600px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background-color: var(--white-color3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.post_card:hover {
+    transform: scale(1.02);
+}
+
+/* ================= Author Section ================ */
+.author_box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.author_box h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.author_box img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* ================= Post Image Styling ================ */
+.card_img {
+    height: 500px;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: contain;
+    background-color: black;
+}
+
+.footer_post{
+    margin-top: 10px;
+}
+
+/* ================= Buttons Styling ================ */
 .like_button,
 .bookmark_button,
 .comment_button {
     background-color: transparent;
-    border: 0;
+    border: none;
     font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
 }
 
+.like_button:hover {
+    color: #ff4d4d; /* Red for likes */
+}
+
+.bookmark_button:hover {
+    color: #f4b400 ; /* Yellow for bookmarks */
+}
+
+.comment_button:hover {
+    color: #007bff; /* Blue for comments */
+}
+
+/* ================= Responsive Design (Mobile) ================ */
 @media (max-width: 768px) {
     .like_button,
     .bookmark_button,
     .comment_button {
-        font-size: 25px
+        font-size: 25px;
     }
 
-    .author_box h5{
+    .author_box h5 {
         font-size: 15px;
     }
 
-    .card{
+    .card {
         font-size: 14px;
     }
-}
-
-.card {
-    width: 800px;
-    max-width: 90%;
-    border-radius: 10px;
-}
-
-.card_img {
-    height: auto;
-    width: 100%;
-    border-radius: 10px;
-    object-fit: contain;
-}
-
-.author_box {
-    border-bottom: 1px solid #ccc;
 }

@@ -15,7 +15,7 @@ export default function Post({ camp, idx, handleCampClick }) {
   };
 
   return (
-    <div className="card" onClick={handleClick}>
+    <div className="card post_card" onClick={handleClick}>
       <div className="card-body">
         <div className="author_box">
           <h5>
@@ -39,11 +39,10 @@ export default function Post({ camp, idx, handleCampClick }) {
             className="card_img"
             alt=""
           />
-          <Carousel imgs={camp.images} />
         </div>
         <div className="footer_post d-flex">
-          <button className="m-2 like_button">
-            <AiTwotoneLike />
+          <button className="m-2 like_button d-flex justify-content-center align-items-center">
+            <AiTwotoneLike /> <span style={{ marginLeft: '10px'}}>{camp.likes.total_likes}</span>
           </button>
           <button className="m-2 comment_button">
             <FaRegComment />
